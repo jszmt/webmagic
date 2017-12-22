@@ -1,13 +1,10 @@
 package com.wugz.app.webMagic;
 
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
@@ -59,11 +56,11 @@ public class GetquestionUrlProcessor implements PageProcessor {
 			}
 			//某个具体答案详情页面，则获取详情信息 。
 		}else if(page.getUrl().regex(URL_answer).match()){
-			String questionTitle = page.getHtml().xpath("//h1[@class=QuestionHeader-title]/text()").toString();
-			String user_Avatar  =  page.getHtml().xpath("//span[@class=AuthorInfo-avatarWrapper]//img/@src").toString();
+//			String questionTitle = page.getHtml().xpath("//h1[@class=QuestionHeader-title]/text()").toString();
+//			String user_Avatar  =  page.getHtml().xpath("//span[@class=AuthorInfo-avatarWrapper]//img/@src").toString();
 			List<String> urlList  = page.getHtml().xpath("//div[@class=RichContent-inner]//img/@src").all();
 			String filePath = path;
-			String title  =  questionTitle+"_"+user_Avatar;
+			//String title  =  questionTitle+"_"+user_Avatar;
 			final int[] i = {1};
 			urlList.forEach(url -> {
 					try {
